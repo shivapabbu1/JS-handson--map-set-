@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        
+        header{
+            font-size: 20px;
+            color: black;
+            background-color: chocolate;
+            text-align: center;
+        }
+        .box{
+            background-color: aqua;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>JS HANDSON [MAP&SET]</header>
+
+    <div>
+        <pre>
+            <span>Method1:</span>
+
+            function removeDuplicate(str,n){	
+            var s = new Set();	
+            for (var i = 0;i < n;i++)
+            s.add(str[i]);
+            for (const i of s) {
+            console.log(i);
+            }
+            }
+            var str="abcadeecfb"
+            var n = str.length
+            removeDuplicate(str,n);
+
+            <span>Method2:</span>  
+
+            let str = "abcadeecfb"
+            let s = new Set();
+            for(let i=0;i <= str.length;i++){
+                if(str[i] != str[i+1]){
+                    s.add(str[i])
+                }
+            }
+                let res=""
+                for(let ch of s){
+                    res = res+ch;
+                }
+                console.log(res);
+        OUTPUT:abcdef
+    </pre>
+    <pre>
+        <span>Method1:</span>
+        function countOfOccurancces(str){
+        var d = new Map();
+        str.split('').forEach(i => {
+            if(d.has(i)){
+                d.set(i, d.get(i)+1);
+            }
+            else{
+            d.set(i, 1);
+        });
+        str.split('').forEach(i => {
+            if(d.has(i) && d.get(i)!=0){
+                console.log( i + "=" + d.get(i) + "\n");
+                d.set(i, 0);
+            }
+        });
+    }
+        var str="abcadeecfb";
+        countOfOccurancces(str);
+        
+        <span>Method2:</span>
+        let str="abcadeecfb"
+        let map=new Map();
+        for(let i=0;i < str.length;i++){
+            if(map.has(str[i])){
+                let value = map.get(str[i])
+                map.set(str[i],value+1)
+            }
+            else{
+                map.set(str[i],1)
+            }
+        }
+            for (let [k,v] of map){
+                console.log(k+"-->"+v);
+            }
+
+        OUTPUT:  
+        a=2
+        b=2
+        c=2
+        d=1
+        e=2
+        f=1
+    </pre>
+    </div>
+    <script src="./main.js"></script> 
+</body>
+</html>
